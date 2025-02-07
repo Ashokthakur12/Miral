@@ -74,6 +74,13 @@ p {
   margin: 20px 0;
 }
 
+.popup-content h2 {
+  font-size: 50px;  /* Name is now bigger */
+  color: #e91e63;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
 .close {
   position: absolute;
   top: 10px;
