@@ -5,6 +5,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Rose Day</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Add basic body styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .rose-image {
+      width: 300px;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff004d;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background-color: #cc0036;
+    }
+
+    /* Popup Styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .popup h2 {
+      margin-bottom: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .box-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff004d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .box-btn:hover {
+      background-color: #cc0036;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Thunderstorm Animation */
+    .thunder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      opacity: 0;
+      pointer-events: none;
+      animation: thunderAnimation 0.5s infinite;
+      z-index: 9999;
+    }
+
+    @keyframes thunderAnimation {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      30% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .flash {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      opacity: 0;
+      animation: flashAnimation 0.1s infinite;
+      z-index: 9999;
+    }
+
+    @keyframes flashAnimation {
+      0% { opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { opacity: 0; }
+    }
+
+    .thunder-sound {
+      display: none;
+    }
+
+  </style>
 </head>
 <body>
   <div class="container">
@@ -15,6 +150,7 @@
     <button class="btn" id="surpriseBtn">Click the Surprise</button>
   </div>
 
+  <!-- Popup -->
   <div id="popup" class="popup">
     <div class="popup-content">
       <span class="close" id="closeBtn">&times;</span>
@@ -28,20 +164,52 @@
     </div>
   </div>
 
+  <!-- Thunder sound and effects -->
+  <div class="thunder" id="thunderEffect"></div>
+  <div class="flash"></div>
+  <audio class="thunder-sound" id="thunderSound" src="thunder-sound.mp3" preload="auto"></audio>
+
   <script>
+    // Show popup on button click
     document.getElementById('surpriseBtn').addEventListener('click', function() {
       document.getElementById('popup').style.display = 'block';
+
+      // Trigger the thunder animation and sound
+      triggerThunderstorm();
     });
 
+    // Close popup
     document.getElementById('closeBtn').addEventListener('click', function() {
       document.getElementById('popup').style.display = 'none';
       document.getElementById('surpriseContent').classList.add('hidden');
     });
 
+    // Show surprise content when box is opened
     document.getElementById('boxBtn').addEventListener('click', function() {
       document.getElementById('surpriseContent').classList.remove('hidden');
       document.getElementById('boxBtn').style.display = 'none';
     });
+
+    // Thunder animation function
+    function triggerThunderstorm() {
+      const thunderEffect = document.getElementById('thunderEffect');
+      const thunderSound = document.getElementById('thunderSound');
+
+      // Play thunder sound
+      thunderSound.play();
+
+      // Show thunder animation
+      thunderEffect.style.animation = 'thunderAnimation 0.5s infinite';
+
+      // Show flash
+      document.querySelector('.flash').style.animation = 'flashAnimation 0.1s infinite';
+
+      // Remove thunder effect after a few seconds
+      setTimeout(() => {
+        thunderEffect.style.animation = '';
+        document.querySelector('.flash').style.animation = '';
+      }, 5000);  // 5 seconds
+    }
   </script>
 </body>
 </html>
