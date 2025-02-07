@@ -1,37 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Rose Day</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Happy Rose Day 🌹</h1>
-    <p>May your life be as beautiful as a rose and filled with love and happiness.</p>
-    <img src="https://cdn.pixabay.com/photo/2016/11/29/02/14/rose-1867337_1280.jpg" alt="Rose" class="rose-image">
-    <br>
-    <button class="btn" id="surpriseBtn">Click the Surprise</button>
-  </div>
-
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <span class="close" id="closeBtn">&times;</span>
-      <h2>🌹 Surprise for Miral 🌹</h2>
-      <img src="https://cdn.pixabay.com/photo/2015/07/23/08/00/rose-856308_1280.jpg" alt="Surprise Rose" class="surprise-rose">
-      <p>Happy Rose Day, Miral!</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Wishlist🧡</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page page-thunder-to-text">
+      <input
+        id="input"
+        type="text"
+        maxlength="24"
+        placeholder="Write Your Text Here...."
+      />
+      <canvas id="canvas"></canvas>
     </div>
-  </div>
-
-  <script>
-    document.getElementById('surpriseBtn').addEventListener('click', function() {
-      document.getElementById('popup').style.display = 'block';
-    });
-
-    document.getElementById('closeBtn').addEventListener('click', function() {
-      document.getElementById('popup').style.display = 'none';
-    });
-  </script>
-</body>
+    <script src="collegewishlist.js"></script>
+  </body>
 </html>
