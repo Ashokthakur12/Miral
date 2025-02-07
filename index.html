@@ -18,9 +18,13 @@
   <div id="popup" class="popup">
     <div class="popup-content">
       <span class="close" id="closeBtn">&times;</span>
-      <h2>🌹 Surprise for Miral 🌹</h2>
-      <img src="https://cdn.pixabay.com/photo/2015/07/23/08/00/rose-856308_1280.jpg" alt="Surprise Rose" class="surprise-rose">
-      <p>With love and happiness, Miral!</p>
+      <h2>🎁 Surprise Box 🎁</h2>
+      <button class="box-btn" id="boxBtn">Open the Box</button>
+      <div id="surpriseContent" class="hidden">
+        <h2>🌹 Surprise for Miral 🌹</h2>
+        <img src="https://cdn.pixabay.com/photo/2015/07/23/08/00/rose-856308_1280.jpg" alt="Surprise Rose" class="surprise-rose">
+        <p>With love and happiness, Miral!</p>
+      </div>
     </div>
   </div>
 
@@ -31,6 +35,12 @@
 
     document.getElementById('closeBtn').addEventListener('click', function() {
       document.getElementById('popup').style.display = 'none';
+      document.getElementById('surpriseContent').classList.add('hidden');
+    });
+
+    document.getElementById('boxBtn').addEventListener('click', function() {
+      document.getElementById('surpriseContent').classList.remove('hidden');
+      document.getElementById('boxBtn').style.display = 'none';
     });
   </script>
 </body>
