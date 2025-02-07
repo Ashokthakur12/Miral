@@ -12,18 +12,26 @@
     <p>May your life be as beautiful as a rose and filled with love and happiness.</p>
     <img src="https://cdn.pixabay.com/photo/2016/11/29/02/14/rose-1867337_1280.jpg" alt="Rose" class="rose-image">
     <br>
-    <button class="btn" onclick="showSurprise()">Click the Surprise</button>
+    <button class="btn" id="surpriseBtn">Click the Surprise</button>
   </div>
 
   <div id="popup" class="popup">
     <div class="popup-content">
-      <span class="close" onclick="closeSurprise()">&times;</span>
+      <span class="close" id="closeBtn">&times;</span>
       <h2>🌹 Surprise for Miral 🌹</h2>
       <img src="https://cdn.pixabay.com/photo/2015/07/23/08/00/rose-856308_1280.jpg" alt="Surprise Rose" class="surprise-rose">
       <p>With love and happiness, Miral!</p>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    document.getElementById('surpriseBtn').addEventListener('click', function() {
+      document.getElementById('popup').style.display = 'block';
+    });
+
+    document.getElementById('closeBtn').addEventListener('click', function() {
+      document.getElementById('popup').style.display = 'none';
+    });
+  </script>
 </body>
 </html>
