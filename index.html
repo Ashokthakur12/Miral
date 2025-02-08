@@ -6,15 +6,6 @@
   <title>Happy Rose Day</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .motivation-section {
-      background-color: #ffcccc;
-      padding: 30px;
-      border-radius: 10px;
-      margin-top: 40px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
     .popup {
       display: none;
       position: fixed;
@@ -46,6 +37,22 @@
       max-width: 600px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .play-btn {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .play-btn:hover {
+      background-color: #218838;
     }
   </style>
 </head>
@@ -69,10 +76,11 @@
         <img src="https://cdn.pixabay.com/photo/2015/07/23/08/00/rose-856308_1280.jpg" alt="Surprise Rose" class="surprise-rose">
         <div class="video-container">
           <h3>🎬 Watch the Special Video 🎬</h3>
-          <video controls>
+          <video id="specialVideo">
             <source src="In today_s edition of _10Things_ spend a cozy fall day at home in London with actress _yazdemand (Yasmin Finney) reading scripts_ strolling through the park(.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+          <button class="play-btn" id="playVideoBtn">Play Video</button>
         </div>
       </div>
     </div>
@@ -86,11 +94,19 @@
     document.getElementById('closeBtn').addEventListener('click', function() {
       document.getElementById('popup').style.display = 'none';
       document.getElementById('surpriseContent').classList.add('hidden');
+      document.getElementById('specialVideo').pause();
     });
 
     document.getElementById('boxBtn').addEventListener('click', function() {
       document.getElementById('surpriseContent').classList.remove('hidden');
       document.getElementById('boxBtn').style.display = 'none';
+    });
+
+    document.getElementById('playVideoBtn').addEventListener('click', function() {
+      const video = document.getElementById('specialVideo');
+      video.style.display = 'block';  // Show the video
+      video.play();  // Play the video
+      document.getElementById('playVideoBtn').style.display = 'none';  // Hide the play button
     });
   </script>
 </body>
