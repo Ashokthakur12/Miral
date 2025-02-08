@@ -42,11 +42,24 @@
     .motivation-section button:hover {
       background-color: #cc0036;
     }
+
+    /* Video Styling */
+    .video-container {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    video {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Happy Rose Day 🌹</h1>
+    <h1>HAVE A NICE DAY 🌹</h1>
     <p>May your life be as beautiful as a rose and filled with love and happiness.</p>
     <img src="https://cdn.pixabay.com/photo/2016/11/29/02/14/rose-1867337_1280.jpg" alt="Rose" class="rose-image">
     <br>
@@ -60,6 +73,15 @@
     <button id="showMotivationBtn">Get More Motivation</button>
   </div>
 
+  <!-- Video Section -->
+  <div class="video-container">
+    <h2>🎬 Special Video for You 🎬</h2>
+    <video controls>
+      <source src="In today_s edition of _10Things_ spend a cozy fall day at home in London with actress _yazdemand (Yasmin Finney) reading scripts_ strolling through the park(.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
   <div id="popup" class="popup">
     <div class="popup-content">
       <span class="close" id="closeBtn">&times;</span>
@@ -68,7 +90,7 @@
       <div id="surpriseContent" class="hidden">
         <h2>🌹 Surprise for Miral 🌹</h2>
         <img src="https://cdn.pixabay.com/photo/2015/07/23/08/00/rose-856308_1280.jpg" alt="Surprise Rose" class="surprise-rose">
-        <p>Happy' 🥀 Day Cutie, Miral!</p>
+        <p> 👀!</p>
       </div>
     </div>
   </div>
@@ -95,4 +117,3 @@
   </script>
 </body>
 </html>
-
