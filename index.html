@@ -75,11 +75,15 @@
       <div id="surpriseContent" class="hidden">
         <h2>🌹 Surprise for Miral 🌹</h2>
         <img src="https://cdn.pixabay.com/photo/2015/07/23/08/00/rose-856308_1280.jpg" alt="Surprise Rose" class="surprise-rose">
+        
         <div class="video-container">
-  <h3>🎬 Watch the Special Video 🎬</h3>
-  <iframe id="specialVideo" src="https://www.youtube.com/embed/sY3BBPWHSp0" frameborder="5" allowfullscreen></iframe>
-  <button class="play-btn" id="playVideoBtn">Play Video</button>
-</div>
+          <h3>🎬 Watch the Special Video 🎬</h3>
+          <iframe id="specialVideo" src="https://www.youtube.com/embed/sY3BBPWHSp0" frameborder="5" allowfullscreen></iframe>
+          <button class="play-btn" id="playVideoBtn">Play Video</button>
+        </div>
+
+        <!-- QR Code inserted here -->
+        <img src="prince_qr_code.png" alt="QR Code" style="margin-top:20px; max-width:200px;">
       </div>
     </div>
   </div>
@@ -96,15 +100,4 @@
     });
 
     document.getElementById('boxBtn').addEventListener('click', function() {
-      document.getElementById('surpriseContent').classList.remove('hidden');
-      document.getElementById('boxBtn').style.display = 'none';
-    });
-
-    document.getElementById('playVideoBtn').addEventListener('click', function() {
-      const video = document.getElementById('specialVideo');
-      video.style.display = 'block';  // Show the video
-      document.getElementById('playVideoBtn').style.display = 'none';  // Hide the play button
-    });
-  </script>
-</body>
-</html>
+      document
